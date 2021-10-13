@@ -1,12 +1,12 @@
-import Product from 'modules/Product';
+import Items from 'modules/Items';
 import styled, { css } from 'styled-components';
 
 export interface HomeProps {}
 
-const Home = ({}: HomeProps) => {
+const Home = (props: HomeProps) => {
   return (
     <Root>
-      <Product />
+      <Items />
     </Root>
   );
 };
