@@ -1,15 +1,13 @@
-import styled, { css } from 'styled-components';
+import { Spin } from 'antd';
+import { lazy, Suspense } from 'react';
 
-export interface ItemsProps {}
+const ItemsWrapper = lazy(/* webpackChunkName: "Items.module" */ () => import('./view'));
 
-const Items = (props: ItemsProps) => {
-  return <Root>Items Component</Root>;
-};
-
-export default Items;
-
-/** Styled components */
-
-const Root = styled.div`
-  ${({ theme }) => css``}
-`;
+/** Items module */
+export default function Items() {
+  return (
+    <Suspense fallback={<Spin />}>
+      <ItemsWrapper />
+    </Suspense>
+  );
+}

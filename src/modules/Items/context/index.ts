@@ -1,26 +1,24 @@
-import { createContext } from 'react';
+import { createContext, Dispatch, useContext } from 'react';
 import { Item } from '../models';
+import { ItemsActions as Actions } from './reducer';
 
-export interface ItemContextValue {
+export interface ItemsContextValue {
   state: {
     data: { [id: string]: Item };
   };
-  actions: {
-    create: (payload: Item) => void;
-    update: (id: string, payload: Item) => void;
-    remove: (id: string) => void;
-  };
+  dispatch: Dispatch<Actions>;
 }
 
-export const itemsInitialState: ItemContextValue['state'] = {
+export const itemsInitialState: ItemsContextValue['state'] = {
   data: {},
 };
 
-export const ItemContext = createContext({
+export const ItemsContext = createContext({
   state: itemsInitialState,
-  actions: {
-    create() {},
-    update() {},
-    remove() {},
-  },
-} as ItemContextValue);
+} as ItemsContextValue);
+
+/** Items state and actions */
+export function useItems() {
+  const context = useContext(ItemsContext);
+  return context;
+}
