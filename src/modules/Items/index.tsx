@@ -1,13 +1,7 @@
-import { Spin } from 'antd';
-import { lazy, Suspense } from 'react';
+import ModuleLoader from 'shared/ModuleLoader';
 
-const ItemsWrapper = lazy(/* webpackChunkName: "Items.module" */ () => import('./view'));
+const Items = () => (
+  <ModuleLoader module={() => import(/* webpackChunkName: "Items.module" */ './view')} />
+);
 
-/** Items module */
-export default function Items() {
-  return (
-    <Suspense fallback={<Spin />}>
-      <ItemsWrapper />
-    </Suspense>
-  );
-}
+export default Items;

@@ -1,17 +1,29 @@
+import Table from 'shared/ui/Table';
 import styled, { css } from 'styled-components';
 import ItemsProvider from './context/provider';
 
 /** Items view */
-function ItemsView() {
-  return <Root>Items Component</Root>;
-}
-
-/** Items wrapper with provider */
-export default function ItemsWrapper() {
+function View() {
   return (
-    <ItemsProvider>
-      <ItemsView />
-    </ItemsProvider>
+    <Root>
+      <Table
+        onChange={(event) => {
+          console.log(event);
+        }}
+        def={{
+          name: {
+            label: 'Name',
+          },
+          description: {
+            label: 'Description',
+          },
+          price: {
+            label: 'Price',
+          },
+        }}
+        rows={[]}
+      ></Table>
+    </Root>
   );
 }
 
@@ -20,3 +32,11 @@ export default function ItemsWrapper() {
 const Root = styled.div`
   ${({ theme }) => css``}
 `;
+
+export default function ItemsWrapper() {
+  return (
+    <ItemsProvider>
+      <View />
+    </ItemsProvider>
+  );
+}
