@@ -17,12 +17,12 @@ const actions = {
 /** Table UI Component */
 const Table = (props: TableProps) => {
   const { def, rows, onChange } = props;
-
   const columns = Object.entries({ ...def, ...actions });
 
   /** Allows create a new row */
   const RowCreator = () => (
     <Row
+      def={def}
       onRemove={(payload) => onChange({ type: 'remove', payload })}
       onSave={(payload) => onChange({ type: 'save', payload })}
       editMode={true}
@@ -44,6 +44,7 @@ const Table = (props: TableProps) => {
       <tbody>
         {rows.map((row) => (
           <Row
+            def={def}
             key={row.id}
             onRemove={(payload) => onChange({ type: 'remove', payload })}
             onSave={(payload) => onChange({ type: 'save', payload })}

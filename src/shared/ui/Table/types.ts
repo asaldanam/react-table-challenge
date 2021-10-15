@@ -1,12 +1,13 @@
 export type TableDef = {
   [col: string]: {
     label: string;
+    type: 'string' | 'number';
   };
 };
 
 export type TableRow = {
   id: string;
-  [col: string]: string;
+  [col: string]: string | number;
 };
 
 export type TableActions = {

@@ -13,12 +13,15 @@ function View() {
         def={{
           name: {
             label: 'Name',
+            type: 'string',
           },
           description: {
             label: 'Description',
+            type: 'string',
           },
           price: {
             label: 'Price',
+            type: 'number',
           },
         }}
         rows={[]}
