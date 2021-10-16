@@ -1,21 +1,36 @@
+import { HTMLInputTypeAttribute } from 'react';
+
+export type ColDef = {
+  label: string;
+  type?: HTMLInputTypeAttribute;
+  required?: boolean;
+  /** Allow to search by */
+  searchable?: boolean;
+  /** Allow to click cell */
+  clickeable?: boolean;
+};
+
 export type TableDef = {
-  [col: string]: {
-    label: string;
-    type: 'string' | 'number';
-  };
+  [col: string]: ColDef;
 };
 
 export type TableRow = {
   id: string;
-  [col: string]: string | number;
+  [col: string]: any;
 };
 
 export type TableActions = {
-  save: {
+  create: {
+    payload: Omit<TableRow, 'id'>;
+  };
+  update: {
     payload: TableRow;
   };
   remove: {
     payload: Pick<TableRow, 'id'>;
+  };
+  cellClick: {
+    payload: { id: string; value: any };
   };
 };
 

@@ -1,12 +1,16 @@
 import { InputHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 
-export interface CellProps extends InputHTMLAttributes<HTMLInputElement> {
-  editMode?: boolean;
+export interface CellProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onClick'> {
+  onClick: (() => void) | null;
 }
 
-const Cell = ({ editMode, ...inputProps }: CellProps) => {
-  return <Root>{editMode ? <input {...inputProps} /> : inputProps.value}</Root>;
+const Cell = ({ onClick, ...inputProps }: CellProps) => {
+  const { value, readOnly } = inputProps;
+  const input = !readOnly && <input {...inputProps} />;
+  const button = onClick && <button onClick={onClick}>{value}</button>;
+
+  return <Root>{input || button || <div>{value}</div>}</Root>;
 };
 
 export default Cell;
@@ -14,5 +18,31 @@ export default Cell;
 /** Styled components */
 
 const Root = styled.td`
-  ${({ theme }) => css``}
+  ${({ theme }) => css`
+    text-align: left;
+    height: 20px;
+
+    input,
+    div,
+    button {
+      padding: 6px;
+      min-height: 28px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    button {
+      color: ${theme.colors.primary};
+      text-decoration: underline;
+      width: 100%;
+      text-align: left;
+    }
+
+    div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 200px;
+    }
+  `}
 `;

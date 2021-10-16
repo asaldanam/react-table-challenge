@@ -1,13 +1,15 @@
-import Home from 'routes/Home';
+import Router from 'routes';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from 'styles/global';
+import theme from 'styles/theme';
 
 function App() {
-  // DISCLAIMER:
-  // I would usually add here the application router with some router guard abstraction for authenticated applications.
-  // Since the challenge only requires one view, I directly instance the only one available here.
-
   return (
     <>
-      <Home />
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Router />
+      </ThemeProvider>
     </>
   );
 }
