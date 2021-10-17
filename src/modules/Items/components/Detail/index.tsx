@@ -45,7 +45,7 @@ const Root = styled.div<RootProps>`
   ${({ theme, isOpen }) => css`
     display: flex;
     flex-direction: column;
-    margin-top: 24px;
+    margin-top: 16px;
     opacity: ${isOpen ? '1' : '0'};
 
     ${theme.device.tabletS} {
