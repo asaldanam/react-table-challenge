@@ -16,7 +16,9 @@ const inputMock = '12345';
 test('Add new item to the table', () => {
   // Searchs new row inputs
   const newRow = within(screen.getByTestId('Table_newRow'));
-  const inputs = newRow.getAllByRole('textbox') as HTMLInputElement[];
+  const textInputs = newRow.getAllByRole('textbox') as HTMLInputElement[];
+  const numberInputs = newRow.getAllByRole('spinbutton') as HTMLInputElement[];
+  const inputs = [...textInputs, ...numberInputs];
 
   // Fills inputs with inputMocked value
   inputs.forEach((input) => {
