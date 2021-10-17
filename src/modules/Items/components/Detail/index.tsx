@@ -43,13 +43,18 @@ interface RootProps {
 }
 const Root = styled.div<RootProps>`
   ${({ theme, isOpen }) => css`
-    transition: all 0.45s cubic-bezier(0.65, 0, 0.35, 1);
     display: flex;
     flex-direction: column;
+    margin-top: 24px;
     opacity: ${isOpen ? '1' : '0'};
-    width: ${isOpen ? '240px' : '0'};
-    padding-left: 24px;
-    overflow: hidden;
+
+    ${theme.device.tabletS} {
+      transition: width 0.45s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.45s linear;
+      width: ${isOpen ? '240px' : '0px'};
+      padding-left: ${isOpen ? '24px' : '0px'};
+      overflow: hidden;
+    }
+
     & > * {
       height: 100%;
       width: 100%;

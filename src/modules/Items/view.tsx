@@ -20,7 +20,10 @@ const Root = styled.div`
     max-width: 960px;
     margin: 0 auto;
 
-    display: flex;
+    ${theme.device.tabletS} {
+      display: flex;
+    }
+
     & > *:nth-child(1) {
       flex: 1 1;
     }
