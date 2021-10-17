@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import Icons from '../Icons';
+import Panel from '../Panel';
 import Row from './Row';
 import { TableChangeEvent, TableDef, TableRow } from './types';
 import useTableSearch from './useTableSearch';
@@ -63,7 +64,7 @@ const Table = (props: TableProps) => {
                 onCreate={(payload) => onChange({ type: 'create', payload })}
                 onRemove={(payload) => onChange({ type: 'remove', payload })}
                 onUpdate={(payload) => onChange({ type: 'update', payload })}
-                onCellClick={(payload) => onChange({ type: 'cellClick', payload })}
+                onCellClick={(payload) => onChange({ type: 'click', payload })}
               ></Row>
             ))}
           </tbody>
@@ -81,10 +82,8 @@ const Root = styled.div`
   ${({ theme }) => css``}
 `;
 
-const TableContainer = styled.div`
+const TableContainer = styled(Panel)`
   ${({ theme }) => css`
-    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 3%), 0 25px 50px 0 rgb(0 0 0 / 5%);
-    background: ${theme.colors.white};
     min-height: 295px;
   `}
 `;

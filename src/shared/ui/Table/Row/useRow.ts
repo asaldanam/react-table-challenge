@@ -8,7 +8,6 @@ export default function useRow(props: RowProps) {
 
   // Memoices cells and default empty row to def changes, preven
   const { cells, emptyRow } = useMemo(() => {
-    console.log('CHANGE');
     const cells = Object.entries(def).filter(([colName]) => colName !== 'id');
     const emptyRow = cells.reduce((cells, [cell]) => ({ ...cells, [cell]: '' }), {});
     return { cells, emptyRow };

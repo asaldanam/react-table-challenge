@@ -1,4 +1,4 @@
-import ModuleLoader from 'shared/ModuleLoader';
+import ModuleLoader from 'shared/utils/ModuleLoader';
 
 const Router = () => {
   // DISCLAIMER:

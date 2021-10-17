@@ -15,9 +15,9 @@ const GlobalStyles = createGlobalStyle`
   input {
     width: 100%;
     border: none;
-    outline: none;
     height: 100%;
     padding: 0;
+    outline: none;
     background: ${({ theme }) => theme.colors.greyLight};
     color: ${({ theme }) => theme.colors.greyDarker};
   }
@@ -28,6 +28,10 @@ const GlobalStyles = createGlobalStyle`
     background: transparent;
     padding: 0;
     cursor: pointer;
+  }
+
+  #root {
+    font-size: 14px;
   }
 `;
 

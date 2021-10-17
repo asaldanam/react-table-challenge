@@ -1,5 +1,6 @@
 import { InputHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
+import common from 'styles/common';
 
 export interface CellProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onClick'> {
   onClick: (() => void) | null;
@@ -29,6 +30,10 @@ const Root = styled.td`
       min-height: 28px;
       border-radius: 4px;
       font-size: 14px;
+    }
+
+    input {
+      ${common.outline}
     }
 
     button {

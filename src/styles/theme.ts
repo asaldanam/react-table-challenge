@@ -9,7 +9,7 @@ const theme = {
     white: '#ffffff',
     primary: '#0099ff',
     danger: '#ec484d',
-    greyLight: '#f5f8fa',
+    greyLight: '#f0f4f7',
     greySoft: '#dfe6ea',
     greyMedium: '#c1ccd2',
     greyDark: '#536673',

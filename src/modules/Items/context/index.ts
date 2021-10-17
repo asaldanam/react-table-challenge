@@ -5,12 +5,14 @@ import { ItemsActions as Actions } from './reducer';
 export interface ItemsContextValue {
   state: {
     data: { [id: string]: Item };
+    detailId: string | null;
   };
   dispatch: Dispatch<Actions>;
 }
 
 export const itemsInitialState: ItemsContextValue['state'] = {
   data: {},
+  detailId: null,
 };
 
 export const ItemsContext = createContext({

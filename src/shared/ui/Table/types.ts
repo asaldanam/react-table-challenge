@@ -29,7 +29,7 @@ export type TableActions = {
   remove: {
     payload: Pick<TableRow, 'id'>;
   };
-  cellClick: {
+  click: {
     payload: { id: string; value: any };
   };
 };

@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
+import common from 'styles/common';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'danger';
@@ -42,5 +43,9 @@ const Root = styled.button<ButtonProps>`
       background: ${theme.colors.danger};
       color: ${theme.colors.white};
     `}
+    :hover {
+      opacity: 0.8;
+    }
+    ${common.outline}
   `}
 `;

@@ -3,11 +3,15 @@ import { ItemsContextValue as Value, itemsInitialState as initialState } from '.
 import { Item } from '../models';
 
 export type ItemsActions =
+  | { type: 'toggle-detail'; payload: { id: string | null } }
   | { type: 'create'; payload: { item: Omit<Item, 'id'> } }
   | { type: 'update'; payload: { item: Item } }
   | { type: 'remove'; payload: { id: string } };
 
-export const itemsReducer = (state: Value['state'] = initialState, action: ItemsActions) => {
+export const itemsReducer = (
+  state: Value['state'] = initialState,
+  action: ItemsActions,
+): Value['state'] => {
   switch (action.type) {
     case 'create':
       const id = uuid();
@@ -31,6 +35,12 @@ export const itemsReducer = (state: Value['state'] = initialState, action: Items
       return {
         ...state,
         data: rest,
+        detailId: state.detailId === removed.id ? null : state.detailId,
+      };
+    case 'toggle-detail':
+      return {
+        ...state,
+        detailId: action.payload.id,
       };
     default:
       return state;

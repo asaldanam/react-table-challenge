@@ -11,7 +11,7 @@ export type RowProps = {
   onCreate: (payload: TableActions['create']['payload']) => void;
   onUpdate: (payload: TableActions['update']['payload']) => void;
   onRemove: (payload: TableActions['remove']['payload']) => void;
-  onCellClick?: (payload: TableActions['cellClick']['payload']) => void;
+  onCellClick?: (payload: TableActions['click']['payload']) => void;
 };
 
 /** Row UI Component */
@@ -88,7 +88,7 @@ const ActionsCell = styled.td`
   ${({ theme }) => css`
     text-align: right;
     & > *:not(:last-child) {
-      margin-right: 4px;
+      margin-right: 8px;
     }
   `}
 `;
