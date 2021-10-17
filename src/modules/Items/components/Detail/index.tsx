@@ -49,10 +49,11 @@ const Root = styled.div<RootProps>`
     opacity: ${isOpen ? '1' : '0'};
 
     ${theme.device.tabletS} {
-      transition: width 0.45s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.45s linear;
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.35, 1);
       width: ${isOpen ? '240px' : '0px'};
       padding-left: ${isOpen ? '24px' : '0px'};
       overflow: hidden;
+      margin-top: 0px;
     }
 
     & > * {
