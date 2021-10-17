@@ -25,8 +25,8 @@ test('Add new item to the table', () => {
   });
 
   // Finds & click "Add new" button
-  const saveButton = newRow.getByText(/Add new/i);
-  fireEvent.click(saveButton);
+  const addNewButton = newRow.getByText(/Add new/i);
+  fireEvent.click(addNewButton);
 
   const rows = screen.getAllByText(inputMock);
   expect(rows[0]).toHaveTextContent(inputMock);
