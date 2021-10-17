@@ -8,7 +8,7 @@ export interface CellProps extends Omit<InputHTMLAttributes<HTMLInputElement>, '
 
 const Cell = ({ onClick, ...inputProps }: CellProps) => {
   const { value, readOnly } = inputProps;
-  const input = !readOnly && <input {...inputProps} />;
+  const input = !readOnly && <input role="textbox" {...inputProps} />;
   const button = onClick && <button onClick={onClick}>{value}</button>;
 
   return <Root>{input || button || <div>{value}</div>}</Root>;

@@ -10,11 +10,14 @@ const ItemsDetail = () => {
   const detail = data && detailId && data[detailId];
 
   return (
-    <Root isOpen={!!detailId}>
+    <Root data-testid="Items_Detail" isOpen={!!detailId}>
       <Panel>
         <Header>
           Detail
-          <button onClick={() => dispatch({ type: 'toggle-detail', payload: { id: null } })}>
+          <button
+            aria-label="close"
+            onClick={() => dispatch({ type: 'toggle-detail', payload: { id: null } })}
+          >
             <Icons.Close />
           </button>
         </Header>

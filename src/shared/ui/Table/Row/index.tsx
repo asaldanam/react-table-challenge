@@ -55,7 +55,7 @@ const Row = (props: RowProps) => {
   );
 
   return (
-    <Root>
+    <Root data-testid={createMode ? 'Table_newRow' : 'Table_row'}>
       {cells.map(([colName]) => {
         const col = props.def[colName];
         const value = form[colName];
