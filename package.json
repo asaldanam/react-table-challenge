@@ -25,7 +25,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cross-env RTL_SKIP_AUTO_CLEANUP=true react-scripts test --coverage",
+    "test": "cross-env RTL_SKIP_AUTO_CLEANUP=true react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
