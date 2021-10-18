@@ -17,7 +17,7 @@ I decided to refactor also the visual style and some key aspects of the user exp
 The project structure has been created with the scalability of the application in mind:
 
 ```
-konica-minolta-frontend-challenge/
+asaldanam-konica-minolta-frontend-challenge/
 ├─ node_modules/
 ├─ public/
 ├─ src/
