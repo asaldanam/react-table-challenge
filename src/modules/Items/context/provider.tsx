@@ -1,4 +1,4 @@
-import { useMemo, useReducer } from 'react';
+import { PropsWithChildren, useMemo, useReducer } from 'react';
 import {
   ItemsContext as Context,
   itemsInitialState as initialState,
@@ -7,7 +7,7 @@ import {
 import { itemsReducer as reducer } from './reducer';
 
 /** Provides children componentes with Items context */
-export default function ItemsProvider({ children }) {
+export default function ItemsProvider({ children }: PropsWithChildren<{}>) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // Memoizing value to prevent innecesary re-renders from callback fns

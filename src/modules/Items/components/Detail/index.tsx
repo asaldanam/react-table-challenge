@@ -22,15 +22,18 @@ const ItemsDetail = () => {
           </button>
         </Header>
         <Content>
-          {Object.entries(detail || {}).map(([field, value]) => (
-            <div key={field}>
-              <p>
-                <strong>{ITEMS_TABLE_DEF[field]?.label || field}</strong>
-              </p>
-              <p>{value}</p>
-              <br />
-            </div>
-          ))}
+          {Object.entries(detail || {}).map(([field, value]) => {
+            const columnConfig = ITEMS_TABLE_DEF[field as keyof typeof ITEMS_TABLE_DEF];
+            return (
+              <div key={field}>
+                <p>
+                  <strong>{columnConfig?.label || field}</strong>
+                </p>
+                <p>{value}</p>
+                <br />
+              </div>
+            );
+          })}
         </Content>
       </Panel>
     </Root>
